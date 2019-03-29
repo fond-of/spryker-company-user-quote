@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace FondOfSpryker\Zed\CompanyUserQuote\Business;
 
 use FondOfSpryker\Zed\CompanyUserQuote\Business\Model\CompanyUserQuoteReaderInterface;
-use FondOfSpryker\Zed\Quote\Business\Model\CompanyUserQuoteReader;
+use FondOfSpryker\Zed\CompanyUserQuote\Business\Model\CompanyUserQuoteReader;
 use Spryker\Zed\Quote\Business\QuoteBusinessFactory;
 
 /**

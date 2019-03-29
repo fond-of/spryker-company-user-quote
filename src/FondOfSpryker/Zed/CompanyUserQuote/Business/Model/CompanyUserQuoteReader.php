@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace FondOfSpryker\Zed\Quote\Business\Model;
+namespace FondOfSpryker\Zed\CompanyUserQuote\Business\Model;
 
 use FondOfSpryker\Zed\CompanyUserQuote\Business\Model\CompanyUserQuoteReaderInterface;
 use FondOfSpryker\Zed\CompanyUserQuote\Persistence\CompanyUserQuoteRepositoryInterface;
@@ -34,7 +34,7 @@ class CompanyUserQuoteReader extends QuoteReader implements CompanyUserQuoteRead
      */
     public function getFilteredCompanyUserQuoteCollection(QuoteCriteriaFilterTransfer $quoteCriteriaFilterTransfer): QuoteCollectionTransfer
     {
-        $quoteCollectionTransfer = $this->companyUserQuoteRepository->filterQuoteCollection($quoteCriteriaFilterTransfer);
+        $quoteCollectionTransfer = $this->companyUserQuoteRepository->filterCompanyUserQuoteCollection($quoteCriteriaFilterTransfer);
         $quoteCollectionTransfer = $this->executeExpandQuotePluginsForQuoteCollection($quoteCollectionTransfer);
 
         return $quoteCollectionTransfer;

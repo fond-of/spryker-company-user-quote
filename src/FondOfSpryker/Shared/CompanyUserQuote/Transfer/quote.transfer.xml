@@ -10,4 +10,5 @@
     <transfer name="QuoteCriteriaFilter">
         <property name="companyUserReference" type="string"/>
     </transfer>
+
 </transfers>
