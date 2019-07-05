@@ -1,11 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace FondOfSpryker\Zed\CompanyUserQuote\Business;
 
 use Generated\Shared\Transfer\QuoteCollectionTransfer;
 use Generated\Shared\Transfer\QuoteCriteriaFilterTransfer;
+use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Zed\Quote\Business\QuoteFacade;
 
 /**
@@ -25,5 +26,17 @@ class CompanyUserQuoteFacade extends QuoteFacade implements CompanyUserQuoteFaca
         return $this->getFactory()
             ->createCompanyUserQuoteReader()
             ->getFilteredCompanyUserQuoteCollection($quoteCriteriaFilterTransfer);
+    }
+
+    /**
+     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
+     *
+     * @return \Generated\Shared\Transfer\QuoteTransfer
+     */
+    public function expandQuoteWithCompanyUser(QuoteTransfer $quoteTransfer): QuoteTransfer
+    {
+        return $this->getFactory()
+            ->createCompanyUserQuoteExpander()
+            ->expand($quoteTransfer);
     }
 }
