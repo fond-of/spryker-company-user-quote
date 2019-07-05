@@ -7,7 +7,6 @@
     <table name="spy_quote" phpName="SpyQuote">
         <column name="company_user_reference" required="false" type="VARCHAR" size="255"/>
         <column name="reference" required="false" type="VARCHAR" size="255"/>
-        <column name="dates" required="false" type="VARCHAR" size="255"/>
         <column name="comment" required="false" type="LONGVARCHAR"/>
         <column name="filter" required="false" type="LONGVARCHAR"/>
 
