@@ -1,10 +1,9 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace FondOfSpryker\Zed\CompanyUserQuote\Persistence;
 
-use DateTime;
 use Generated\Shared\Transfer\QuoteCollectionTransfer;
 use Generated\Shared\Transfer\QuoteCriteriaFilterTransfer;
 use Orm\Zed\Quote\Persistence\SpyQuoteQuery;
@@ -48,8 +47,12 @@ class CompanyUserQuoteRepository extends QuoteRepository implements CompanyUserQ
     {
         $quoteQuery = $this->applyQuoteCriteriaFilters($quoteQuery, $quoteCriteriaFilterTransfer);
 
-        if ($quoteCriteriaFilterTransfer->getCompanyUserReference()) {
+        if ($quoteCriteriaFilterTransfer->getCompanyUserReference() !== null) {
             $quoteQuery->filterByCompanyUserReference($quoteCriteriaFilterTransfer->getCompanyUserReference());
+        }
+
+        if ($quoteCriteriaFilterTransfer->getUuid() !== null) {
+            $quoteQuery->filterByUuid($quoteCriteriaFilterTransfer->getUuid());
         }
 
         return $quoteQuery;

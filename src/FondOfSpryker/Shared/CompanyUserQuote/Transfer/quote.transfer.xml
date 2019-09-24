@@ -12,6 +12,7 @@
 
     <transfer name="QuoteCriteriaFilter">
         <property name="companyUserReference" type="string"/>
+        <property name="uuid" type="string"/>
     </transfer>
 
 </transfers>
