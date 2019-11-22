@@ -9,7 +9,7 @@ use FondOfSpryker\Zed\CompanyUserQuote\Business\Model\CompanyUserQuoteExpanderIn
 use FondOfSpryker\Zed\CompanyUserQuote\Business\Model\CompanyUserQuoteReader;
 use FondOfSpryker\Zed\CompanyUserQuote\Business\Model\CompanyUserQuoteReaderInterface;
 use FondOfSpryker\Zed\CompanyUserQuote\CompanyUserQuoteDependencyProvider;
-use FondOfSpryker\Zed\CompanyUserQuote\Dependency\Facade\CompanyUserQuoteToCompanyUsersRestApiFacadeInterface;
+use FondOfSpryker\Zed\CompanyUserQuote\Dependency\Facade\CompanyUserQuoteToCompanyUserReferenceFacadeInterface;
 use Spryker\Zed\Quote\Business\QuoteBusinessFactory;
 
 /**
@@ -32,16 +32,16 @@ class CompanyUserQuoteBusinessFactory extends QuoteBusinessFactory
      */
     public function createCompanyUserQuoteExpander(): CompanyUserQuoteExpanderInterface
     {
-        return new CompanyUserQuoteExpander($this->getCompanyUsersRestApiFacade());
+        return new CompanyUserQuoteExpander($this->getCompanyUserReferenceFacade());
     }
 
     /**
      * @throws
      *
-     * @return \FondOfSpryker\Zed\CompanyUserQuote\Dependency\Facade\CompanyUserQuoteToCompanyUsersRestApiFacadeInterface
+     * @return \FondOfSpryker\Zed\CompanyUserQuote\Dependency\Facade\CompanyUserQuoteToCompanyUserReferenceFacadeInterface
      */
-    protected function getCompanyUsersRestApiFacade(): CompanyUserQuoteToCompanyUsersRestApiFacadeInterface
+    protected function getCompanyUserReferenceFacade(): CompanyUserQuoteToCompanyUserReferenceFacadeInterface
     {
-        return $this->getProvidedDependency(CompanyUserQuoteDependencyProvider::FACADE_COMPANY_USERS_REST_API);
+        return $this->getProvidedDependency(CompanyUserQuoteDependencyProvider::FACADE_COMPANY_USER_REFERENCE);
     }
 }

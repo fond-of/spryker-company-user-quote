@@ -2,23 +2,23 @@
 
 namespace FondOfSpryker\Zed\CompanyUserQuote\Business\Model;
 
-use FondOfSpryker\Zed\CompanyUserQuote\Dependency\Facade\CompanyUserQuoteToCompanyUsersRestApiFacadeInterface;
+use FondOfSpryker\Zed\CompanyUserQuote\Dependency\Facade\CompanyUserQuoteToCompanyUserReferenceFacadeInterface;
 use Generated\Shared\Transfer\CompanyUserTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 
 class CompanyUserQuoteExpander implements CompanyUserQuoteExpanderInterface
 {
     /**
-     * @var \FondOfSpryker\Zed\CompanyUserQuote\Dependency\Facade\CompanyUserQuoteToCompanyUsersRestApiFacadeInterface
+     * @var \FondOfSpryker\Zed\CompanyUserQuote\Dependency\Facade\CompanyUserQuoteToCompanyUserReferenceFacadeInterface
      */
-    protected $companyUsersRestApiFacade;
+    protected $companyUserReferenceFacade;
 
     /**
-     * @param \FondOfSpryker\Zed\CompanyUserQuote\Dependency\Facade\CompanyUserQuoteToCompanyUsersRestApiFacadeInterface $companyUsersRestApiFacade
+     * @param \FondOfSpryker\Zed\CompanyUserQuote\Dependency\Facade\CompanyUserQuoteToCompanyUserReferenceFacadeInterface $companyUserReferenceFacade
      */
-    public function __construct(CompanyUserQuoteToCompanyUsersRestApiFacadeInterface $companyUsersRestApiFacade)
+    public function __construct(CompanyUserQuoteToCompanyUserReferenceFacadeInterface $companyUserReferenceFacade)
     {
-        $this->companyUsersRestApiFacade = $companyUsersRestApiFacade;
+        $this->companyUserReferenceFacade = $companyUserReferenceFacade;
     }
 
     /**
@@ -35,12 +35,12 @@ class CompanyUserQuoteExpander implements CompanyUserQuoteExpanderInterface
         $companyUserTransfer = (new CompanyUserTransfer())
             ->setCompanyUserReference($quoteTransfer->getCompanyUserReference());
 
-        $companyUserResponseTransfer = $this->companyUsersRestApiFacade
+        $companyUserResponseTransfer = $this->companyUserReferenceFacade
             ->findCompanyUserByCompanyUserReference($companyUserTransfer);
 
         $companyUserTransfer = $companyUserResponseTransfer->getCompanyUser();
 
-        if ($companyUserResponseTransfer->getIsSuccessful() === false || $companyUserTransfer === null) {
+        if ($companyUserTransfer === null || $companyUserResponseTransfer->getIsSuccessful() === false) {
             return $quoteTransfer;
         }
 

@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace FondOfSpryker\Zed\CompanyUserQuote;
 
-use FondOfSpryker\Zed\CompanyUserQuote\Dependency\Facade\CompanyUserQuoteToCompanyUsersRestApiFacadeBridge;
+use FondOfSpryker\Zed\CompanyUserQuote\Dependency\Facade\CompanyUserQuoteToCompanyUserReferenceFacadeBridge;
 use Spryker\Zed\Kernel\Container;
 use Spryker\Zed\Quote\QuoteDependencyProvider;
 
@@ -13,7 +13,7 @@ use Spryker\Zed\Quote\QuoteDependencyProvider;
  */
 class CompanyUserQuoteDependencyProvider extends QuoteDependencyProvider
 {
-    public const FACADE_COMPANY_USERS_REST_API = 'FACADE_COMPANY_USERS_REST_API';
+    public const FACADE_COMPANY_USER_REFERENCE = 'FACADE_COMPANY_USER_REFERENCE';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -24,7 +24,7 @@ class CompanyUserQuoteDependencyProvider extends QuoteDependencyProvider
     {
         $container = parent::provideBusinessLayerDependencies($container);
 
-        $container = $this->addCompanyUsersRestApiFacade($container);
+        $container = $this->addCompanyUserReferenceFacade($container);
 
         return $container;
     }
@@ -34,11 +34,11 @@ class CompanyUserQuoteDependencyProvider extends QuoteDependencyProvider
      *
      * @return \Spryker\Zed\Kernel\Container
      */
-    protected function addCompanyUsersRestApiFacade(Container $container): Container
+    protected function addCompanyUserReferenceFacade(Container $container): Container
     {
-        $container[static::FACADE_COMPANY_USERS_REST_API] = function (Container $container) {
-            return new CompanyUserQuoteToCompanyUsersRestApiFacadeBridge(
-                $container->getLocator()->companyUsersRestApi()->facade()
+        $container[static::FACADE_COMPANY_USER_REFERENCE] = function (Container $container) {
+            return new CompanyUserQuoteToCompanyUserReferenceFacadeBridge(
+                $container->getLocator()->companyUserReference()->facade()
             );
         };
 
