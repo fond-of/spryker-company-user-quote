@@ -1,14 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace FondOfSpryker\Zed\CompanyUserQuote\Business\Model;
 
-use FondOfSpryker\Zed\CompanyUserQuote\Business\Model\CompanyUserQuoteReaderInterface;
 use FondOfSpryker\Zed\CompanyUserQuote\Persistence\CompanyUserQuoteRepositoryInterface;
 use Generated\Shared\Transfer\QuoteCollectionTransfer;
 use Generated\Shared\Transfer\QuoteCriteriaFilterTransfer;
 use Spryker\Zed\Quote\Business\Model\QuoteReader;
+use Spryker\Zed\Quote\Dependency\Facade\QuoteToStoreFacadeInterface;
 
 class CompanyUserQuoteReader extends QuoteReader implements CompanyUserQuoteReaderInterface
 {
@@ -18,12 +18,18 @@ class CompanyUserQuoteReader extends QuoteReader implements CompanyUserQuoteRead
     protected $companyUserQuoteRepository;
 
     /**
+     * CompanyUserQuoteReader constructor.
+     *
      * @param \FondOfSpryker\Zed\CompanyUserQuote\Persistence\CompanyUserQuoteRepositoryInterface $companyUserQuoteRepository
-     * @param \Spryker\Zed\QuoteExtension\Dependency\Plugin\QuoteExpanderPluginInterface[] $quoteExpanderPlugins
+     * @param array $quoteExpanderPlugins
+     * @param \Spryker\Zed\Quote\Dependency\Facade\QuoteToStoreFacadeInterface $quoteToStoreFacade
      */
-    public function __construct(CompanyUserQuoteRepositoryInterface $companyUserQuoteRepository, array $quoteExpanderPlugins)
-    {
-        parent::__construct($companyUserQuoteRepository, $quoteExpanderPlugins);
+    public function __construct(
+        CompanyUserQuoteRepositoryInterface $companyUserQuoteRepository,
+        array $quoteExpanderPlugins,
+        QuoteToStoreFacadeInterface $quoteToStoreFacade
+    ) {
+        parent::__construct($companyUserQuoteRepository, $quoteExpanderPlugins, $quoteToStoreFacade);
         $this->companyUserQuoteRepository = $companyUserQuoteRepository;
     }
 
