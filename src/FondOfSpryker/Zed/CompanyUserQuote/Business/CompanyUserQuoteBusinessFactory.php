@@ -24,7 +24,7 @@ class CompanyUserQuoteBusinessFactory extends QuoteBusinessFactory
      */
     public function createCompanyUserQuoteReader(): CompanyUserQuoteReaderInterface
     {
-        return new CompanyUserQuoteReader($this->getRepository(), $this->getQuoteExpanderPlugins());
+        return new CompanyUserQuoteReader($this->getRepository(), $this->getQuoteExpanderPlugins(), $this->getStoreFacade());
     }
 
     /**

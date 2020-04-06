@@ -29,9 +29,8 @@ class CompanyUserQuoteRepository extends QuoteRepository implements CompanyUserQ
         $quoteEntityCollectionTransfer = $this->buildQueryFromCriteria($quoteQuery, $quoteCriteriaFilterTransfer->getFilter())->find();
 
         $quoteCollectionTransfer = new QuoteCollectionTransfer();
-        $quoteMapper = $this->getFactory()->createQuoteMapper();
         foreach ($quoteEntityCollectionTransfer as $quoteEntityTransfer) {
-            $quoteCollectionTransfer->addQuote($quoteMapper->mapQuoteTransfer($quoteEntityTransfer));
+            $quoteCollectionTransfer->addQuote($this->mapQuoteTransfer($quoteEntityTransfer));
         }
 
         return $quoteCollectionTransfer;
@@ -40,6 +39,8 @@ class CompanyUserQuoteRepository extends QuoteRepository implements CompanyUserQ
     /**
      * @param \Orm\Zed\Quote\Persistence\SpyQuoteQuery $quoteQuery
      * @param \Generated\Shared\Transfer\QuoteCriteriaFilterTransfer $quoteCriteriaFilterTransfer
+     *
+     * @throws
      *
      * @return \Orm\Zed\Quote\Persistence\SpyQuoteQuery
      */

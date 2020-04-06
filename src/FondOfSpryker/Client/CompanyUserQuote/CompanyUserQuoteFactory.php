@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace FondOfSpryker\Client\CompanyUserQuote;
 
@@ -20,6 +20,8 @@ class CompanyUserQuoteFactory extends AbstractFactory
     }
 
     /**
+     * @throws
+     *
      * @return \Spryker\Client\ZedRequest\ZedRequestClientInterface
      */
     protected function getZedRequestClient(): ZedRequestClientInterface

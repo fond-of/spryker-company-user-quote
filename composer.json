@@ -10,9 +10,11 @@
   ],
   "require": {
     "php": ">=7.1",
+    "spryker/quote": "^2.0.0",
     "fond-of-spryker/company-user-reference": "dev-master"
   },
   "require-dev": {
+    "fond-of-codeception/spryker": "dev-master as 1.0.0",
     "spryker/code-sniffer": "^0.12",
     "codeception/codeception": "^2.4",
     "codeception/mockery-module": "^0.2",
@@ -30,7 +32,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "FondOfSpryker\\": "tests/FondOfSpryker/"
+      "FondOfSpryker\\": "tests/FondOfSpryker/",
+      "Generated\\": "src/Generated/"
     }
   }
 }
