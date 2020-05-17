@@ -40,8 +40,6 @@ class CompanyUserQuoteRepository extends QuoteRepository implements CompanyUserQ
      * @param \Orm\Zed\Quote\Persistence\SpyQuoteQuery $quoteQuery
      * @param \Generated\Shared\Transfer\QuoteCriteriaFilterTransfer $quoteCriteriaFilterTransfer
      *
-     * @throws
-     *
      * @return \Orm\Zed\Quote\Persistence\SpyQuoteQuery
      */
     protected function applyCompanyUserQuoteCriteriaFilters(SpyQuoteQuery $quoteQuery, QuoteCriteriaFilterTransfer $quoteCriteriaFilterTransfer): SpyQuoteQuery

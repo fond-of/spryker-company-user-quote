@@ -36,8 +36,6 @@ class CompanyUserQuoteBusinessFactory extends QuoteBusinessFactory
     }
 
     /**
-     * @throws
-     *
      * @return \FondOfSpryker\Zed\CompanyUserQuote\Dependency\Facade\CompanyUserQuoteToCompanyUserReferenceFacadeInterface
      */
     protected function getCompanyUserReferenceFacade(): CompanyUserQuoteToCompanyUserReferenceFacadeInterface

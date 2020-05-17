@@ -9,7 +9,7 @@ use Generated\Shared\Transfer\CompanyUserTransfer;
 class CompanyUserQuoteToCompanyUserReferenceFacadeBridge implements CompanyUserQuoteToCompanyUserReferenceFacadeInterface
 {
     /**
-     * @var \FondOfSpryker\Zed\CompanyUsersRestApi\Business\CompanyUsersRestApiFacadeInterface
+     * @var \FondOfSpryker\Zed\CompanyUserReference\Business\CompanyUserReferenceFacadeInterface
      */
     protected $companyUserReferenceFacade;
 
