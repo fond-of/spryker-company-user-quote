@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 
 namespace FondOfSpryker\Zed\CompanyUserQuote\Business\Model;
 
 use Generated\Shared\Transfer\QuoteCollectionTransfer;
 use Generated\Shared\Transfer\QuoteCriteriaFilterTransfer;
-
 use Spryker\Zed\Quote\Business\Model\QuoteReaderInterface as SprykerQuoteReaderInterface;
 
 interface CompanyUserQuoteReaderInterface extends SprykerQuoteReaderInterface

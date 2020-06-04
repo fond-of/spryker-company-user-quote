@@ -18,8 +18,6 @@ class CompanyUserQuoteReader extends QuoteReader implements CompanyUserQuoteRead
     protected $companyUserQuoteRepository;
 
     /**
-     * CompanyUserQuoteReader constructor.
-     *
      * @param \FondOfSpryker\Zed\CompanyUserQuote\Persistence\CompanyUserQuoteRepositoryInterface $companyUserQuoteRepository
      * @param array $quoteExpanderPlugins
      * @param \Spryker\Zed\Quote\Dependency\Facade\QuoteToStoreFacadeInterface $quoteToStoreFacade
